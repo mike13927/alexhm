@@ -12,17 +12,13 @@ import CardContent from "@material-ui/core/CardContent";
 import Paper from "@material-ui/core/Paper";
 
 function App() {
-  const styles = {
-    paperContainer: {
-      backgroundImage: `url(${"static/src/img/main.jpg"})`,
-    },
-  };
-
   const Div = styled("div")(({ theme }) => ({
     ...theme.typography.button,
-    backgroundColor: "blue", //theme.palette.background.paper,
+    backgroundColor: "white", //theme.palette.background.paper,
     padding: theme.spacing(1),
-    color: "white",
+    color: "#800020",
+    border: "1px",
+    borderRadius: "30px",
   }));
 
   const DivNms = styled("div")(({ theme }) => ({
@@ -72,7 +68,7 @@ function App() {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "auto",
-    backgroundColor: "blue",
+    backgroundColor: "#B6D0E2",
     height: "1400px",
   };
 
@@ -86,17 +82,23 @@ function App() {
         }}
       >
         <iframe
-          width="460"
-          height="315"
-          src="https://www.youtube.com/embed/prfH92_QtS0"
-          title="YouTube video player"
+          title="vimeo-player"
+          src="https://player.vimeo.com/video/737650439?h=cd11c1ccd4"
+          width="640"
+          height="268"
           frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
       </Paper>
-      <Paper style={{float: "center", paddingLeft: "80px", backgroundColor: "transparent", boxShadow: "unset"}}>
-       &nbsp; {/* <TitleSpan>Vivarium Film</TitleSpan> */}
+      <Paper
+        style={{
+          float: "center",
+          paddingLeft: "80px",
+          backgroundColor: "transparent",
+          boxShadow: "unset",
+        }}
+      >
+        &nbsp; {/* <TitleSpan>Vivarium Film</TitleSpan> */}
       </Paper>
 
       {segs.map(([role, nms]) => {
