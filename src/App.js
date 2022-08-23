@@ -55,7 +55,7 @@ function App() {
 
   let paperStyle = {
     display: "flex",
-    justifyContent: "start",
+    justifyContent: "end",
     alignItems: "center",
     textAlign: "center",
     verticalAlign: "middle",
@@ -64,6 +64,15 @@ function App() {
   };
 
   let appStyle = {
+    //backgroundImage: `url(${"thumbnail_Stockbee.png"})`,
+    //backgroundPosition: "center",
+    //backgroundRepeat: "no-repeat",
+    //backgroundSize: "auto",
+    backgroundColor: "#B6D0E2",
+    height: "1400px",
+  };
+
+  let outerPaperStyle = {
     backgroundImage: `url(${"thumbnail_Stockbee.png"})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -74,64 +83,66 @@ function App() {
 
   return (
     <div className="App" style={appStyle}>
-      <Paper
-        style={{
-          float: "right",
-          paddingTop: "60px",
-          backgroundColor: "transparent",
-        }}
-      >
-        <iframe
-          title="vimeo-player"
-          src="https://player.vimeo.com/video/737650439?h=cd11c1ccd4"
-          width="640"
-          height="268"
-          frameborder="0"
-          allowfullscreen
-        ></iframe>
-      </Paper>
-      <Paper
-        style={{
-          float: "center",
-          paddingLeft: "80px",
-          backgroundColor: "transparent",
-          boxShadow: "unset",
-        }}
-      >
-        &nbsp; {/* <TitleSpan>Vivarium Film</TitleSpan> */}
-      </Paper>
+      <Paper style={outerPaperStyle}>
+        <Paper
+          style={{
+            float: "left",
+            paddingTop: "60px",
+            backgroundColor: "transparent",
+          }}
+        >
+          <iframe
+            title="vimeo-player"
+            src="https://player.vimeo.com/video/737650439?h=cd11c1ccd4"
+            width="640"
+            height="268"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </Paper>
+        <Paper
+          style={{
+            float: "center",
+            paddingLeft: "80px",
+            backgroundColor: "transparent",
+            boxShadow: "unset",
+          }}
+        >
+          &nbsp; {/* <TitleSpan>Vivarium Film</TitleSpan> */}
+        </Paper>
 
-      {segs.map(([role, nms]) => {
-        return (
-          <Paper style={paperStyle}>
-            <Card
-              style={{
-                maxWidth: 400,
-                width: 400,
-                backgroundColor: "transparent",
-                opacity: 0.9,
-                paddingLeft: "40px",
-                boxShadow: "unset",
-                "&:hover": {
-                  backgroundColor: "primary.main",
-                  opacity: [0.9, 0.8, 0.7],
-                },
-              }}
-            >
-              <CardContent
+        {segs.map(([role, nms]) => {
+          return (
+            <Paper style={paperStyle}>
+              <Card
                 style={{
-                  width: 360,
-                  opacity: 0.9,
+                  maxWidth: 400,
+                  width: 400,
                   backgroundColor: "transparent",
+                  opacity: 0.9,
+                  paddingLeft: "40px",
+                  boxShadow: "unset",
+                  "&:hover": {
+                    backgroundColor: "primary.main",
+                    opacity: [0.9, 0.8, 0.7],
+                  },
                 }}
               >
-                <Div>{role}</Div>
-                <DivNms>{nms}</DivNms>
-              </CardContent>
-            </Card>
-          </Paper>
-        );
-      })}
+                <CardContent
+                  style={{
+                    width: 360,
+                    opacity: 0.9,
+                    backgroundColor: "transparent",
+                  }}
+                >
+                  <Div>{role}</Div>
+                  <DivNms>{nms}</DivNms>
+                </CardContent>
+              </Card>
+            </Paper>
+          );
+        })}
+      </Paper>
     </div>
   );
 }
