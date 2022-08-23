@@ -123,7 +123,7 @@ function App() {
 
         <Paper class="credit-scroll"
           style={{
-            height: "400px",
+            height: "60vh",
             overflowY: "scroll",
             overflowX: "hidden",
             backgroundColor: "transparent",
