@@ -14,17 +14,17 @@ import Paper from "@material-ui/core/Paper";
 function App() {
   const Div = styled("div")(({ theme }) => ({
     ...theme.typography.button,
-    backgroundColor: "white", //theme.palette.background.paper,
+    backgroundColor: "transparent", //theme.palette.background.paper,
     padding: theme.spacing(1),
-    color: "#800020",
+    color: "white",
     border: "1px",
     borderRadius: "30px",
   }));
 
   const DivNms = styled("div")(({ theme }) => ({
     ...theme.typography.h6,
-    color: "darkslategray",
-    backgroundColor: "aliceblue",
+    color: "white",
+    backgroundColor: "transparent",
     padding: theme.spacing(1),
     border: "4px",
     borderColor: "aquamarine",
@@ -33,11 +33,12 @@ function App() {
   }));
 
   const TitleSpan = styled("span")(({ theme }) => ({
-    ...theme.typography.h2,
-    color: "darkslategray",
+    ...theme.typography.h4,
+    color: "white",
     backgroundColor: "transparent",
     fontWeight: "bold",
-    padding: theme.spacing(1),
+    border: "2px solid white",
+    padding: "16px",
   }));
 
   let segs = [
@@ -55,7 +56,7 @@ function App() {
 
   let paperStyle = {
     display: "flex",
-    justifyContent: "end",
+    justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
     verticalAlign: "middle",
@@ -73,7 +74,7 @@ function App() {
   };
 
   let outerPaperStyle = {
-    backgroundImage: `url(${"thumbnail_Stockbee.png"})`,
+    backgroundImage: `url(${"conquistador_bg.png"})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "auto",
@@ -86,7 +87,7 @@ function App() {
       <Paper style={outerPaperStyle}>
         <Paper
           style={{
-            float: "left",
+            //float: "left",
             paddingTop: "60px",
             backgroundColor: "transparent",
           }}
@@ -103,45 +104,70 @@ function App() {
         <Paper
           style={{
             float: "center",
-            paddingLeft: "80px",
+            paddingLeft: "10px",
+            paddingTop: "30px",
+            paddingBottom: "20px",
             backgroundColor: "transparent",
             boxShadow: "unset",
           }}
         >
-          &nbsp; {/* <TitleSpan>Vivarium Film</TitleSpan> */}
+          <TitleSpan>
+            <a
+              style={{ color: "white", textDecoration: "none" }}
+              href="mailto:name@email.com"
+            >
+              Email Vivarium Film
+            </a>
+          </TitleSpan>
         </Paper>
 
-        {segs.map(([role, nms]) => {
-          return (
-            <Paper style={paperStyle}>
-              <Card
-                style={{
-                  maxWidth: 400,
-                  width: 400,
-                  backgroundColor: "transparent",
-                  opacity: 0.9,
-                  paddingLeft: "40px",
-                  boxShadow: "unset",
-                  "&:hover": {
-                    backgroundColor: "primary.main",
-                    opacity: [0.9, 0.8, 0.7],
-                  },
-                }}
-              >
-                <CardContent
+        <Paper class="credit-scroll"
+          style={{
+            height: "400px",
+            overflowY: "scroll",
+            overflowX: "hidden",
+            backgroundColor: "transparent",
+          }}
+        >
+          {segs.map(([role, nms]) => {
+            return (
+              <Paper style={paperStyle}>
+                <Card
                   style={{
-                    width: 360,
-                    opacity: 0.9,
+                    maxWidth: 400,
+                    width: 400,
                     backgroundColor: "transparent",
+                    opacity: 0.9,
+                    paddingLeft: "10px",
+                    boxShadow: "unset",
+                    "&:hover": {
+                      backgroundColor: "primary.main",
+                      opacity: [0.9, 0.8, 0.7],
+                    },
                   }}
                 >
-                  <Div>{role}</Div>
-                  <DivNms>{nms}</DivNms>
-                </CardContent>
-              </Card>
-            </Paper>
-          );
-        })}
+                  <CardContent
+                    style={{
+                      width: 360,
+                      opacity: 0.9,
+                      backgroundColor: "transparent",
+                    }}
+                  >
+                    <Div>{role}</Div>
+                    <DivNms>
+                      <a
+                        href={"http://www.google.com"}
+                        style={{ textDecoration: "none" }}
+                      >
+                        {nms}
+                      </a>
+                    </DivNms>
+                  </CardContent>
+                </Card>
+              </Paper>
+            );
+          })}
+        </Paper>
       </Paper>
     </div>
   );
