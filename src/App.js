@@ -69,7 +69,7 @@ function App() {
     //backgroundPosition: "center",
     //backgroundRepeat: "no-repeat",
     //backgroundSize: "auto",
-    backgroundColor: "#B6D0E2",
+    backgroundColor: "black",
     height: "1400px",
   };
 
@@ -78,7 +78,7 @@ function App() {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "auto",
-    backgroundColor: "#B6D0E2",
+    backgroundColor: "black",
     height: "1400px",
   };
 
