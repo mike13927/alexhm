@@ -95,8 +95,7 @@ function App() {
           <iframe
             title="vimeo-player"
             src="https://player.vimeo.com/video/737650439?h=cd11c1ccd4"
-            width="80%"
-            height="268"
+            width="70%"
             frameborder="0"
             allowfullscreen
           ></iframe>
