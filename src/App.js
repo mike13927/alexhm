@@ -26,8 +26,8 @@ function App() {
     color: "white",
     backgroundColor: "transparent",
     padding: theme.spacing(1),
-    border: "4px",
-    borderColor: "aquamarine",
+    border: "2px",
+    borderColor: "white",
     borderStyle: "dashed",
     borderRadius: "30px",
   }));
@@ -95,7 +95,7 @@ function App() {
           <iframe
             title="vimeo-player"
             src="https://player.vimeo.com/video/737650439?h=cd11c1ccd4"
-            width="640"
+            width="80%"
             height="268"
             frameborder="0"
             allowfullscreen
@@ -121,7 +121,8 @@ function App() {
           </TitleSpan>
         </Paper>
 
-        <Paper class="credit-scroll"
+        <Paper
+          class="credit-scroll"
           style={{
             height: "60vh",
             overflowY: "scroll",
@@ -154,14 +155,12 @@ function App() {
                     }}
                   >
                     <Div>{role}</Div>
-                    <DivNms>
-                      <a
-                        href={"http://www.google.com"}
-                        style={{ textDecoration: "none" }}
-                      >
-                        {nms}
-                      </a>
-                    </DivNms>
+                    <a
+                      href={"http://www.google.com"}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <DivNms>{nms}</DivNms>
+                    </a>
                   </CardContent>
                 </Card>
               </Paper>
