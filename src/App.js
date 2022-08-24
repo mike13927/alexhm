@@ -11,19 +11,23 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Paper from "@material-ui/core/Paper";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
   const iframeRef = useRef();
+
+  const [bgWidth, setBgWidth] = useState(2000)
 
   useEffect(() => {
     // Handler to call on window resize
     function handleResize() {
       if (iframeRef.current) {
+        setBgWidth(window.innerWidth)
         let iW = window.innerWidth - 400;
         if (iW > 800) {
           iW = 800;
         }
+        
         iframeRef.current.width = iW + 'px';
         iframeRef.current.height = (iW * (268/640)) + 'px'; 
       }
@@ -100,6 +104,7 @@ function App() {
     //backgroundPosition: "center",
     //backgroundRepeat: "no-repeat",
     //backgroundSize: "auto",
+    overflow: "hidden",
     backgroundColor: "black",
     height: "1400px",
   };
@@ -110,7 +115,8 @@ function App() {
     backgroundRepeat: "no-repeat",
     backgroundSize: "auto",
     backgroundColor: "black",
-    height: "1400px",
+    height: "3225px",
+    width: `${bgWidth}px`
   };
 
   return (
