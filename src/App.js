@@ -20,7 +20,7 @@ function App() {
     // Handler to call on window resize
     function handleResize() {
       if (iframeRef.current) {
-        let iW = window.innerWidth;
+        let iW = window.innerWidth - 400;
         if (iW > 800) {
           iW = 800;
         }
