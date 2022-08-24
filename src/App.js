@@ -11,7 +11,31 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Paper from "@material-ui/core/Paper";
 
+import { useEffect, useRef } from "react";
+
 function App() {
+  const iframeRef = useRef();
+
+  useEffect(() => {
+    // Handler to call on window resize
+    function handleResize() {
+      if (iframeRef.current) {
+        let iW = window.innerWidth;
+        if (iW > 800) {
+          iW = 800;
+        }
+        iframeRef.current.width = iW + 'px';
+        iframeRef.current.height = (iW * (268/640)) + 'px'; 
+      }
+    }
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+    // Call handler right away so state gets updated with initial window size
+    handleResize();
+    // Remove event listener on cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount
+
   const Div = styled("div")(({ theme }) => ({
     ...theme.typography.button,
     backgroundColor: "transparent", //theme.palette.background.paper,
@@ -26,14 +50,14 @@ function App() {
     color: "white",
     backgroundColor: "transparent",
     padding: theme.spacing(1),
-    border: "2px",
+    border: "0px",
     borderColor: "white",
     borderStyle: "dashed",
     borderRadius: "30px",
   }));
 
   const TitleSpan = styled("span")(({ theme }) => ({
-    ...theme.typography.h4,
+    ...theme.typography.h6,
     color: "white",
     backgroundColor: "transparent",
     fontWeight: "bold",
@@ -42,15 +66,21 @@ function App() {
   }));
 
   let segs = [
-    ["Writer/Director/Editor", "SHAUN VIVARIS"],
-    ["Producers", "MARK JEROME CRUZ, ALEX DELFIN, GLEN VIVARIS"],
-    ["Director of Photography", "GLEN VIVARIS"],
-    ["Costume Designer", "KIMY MARTINEZ"],
-    ["Original Score", "IAN CHEN"],
-    ["Hair/Makeup Dept. Head", "MIKEL SESSIONS"],
+    ["Writer/Director/Editor", ["SHAUN VIVARIS"]],
+    ["Producers", ["MARK JEROME CRUZ", "ALEX DELFIN", "GLEN VIVARIS"]],
+    ["Director of Photography", ["GLEN VIVARIS"]],
+    ["Costume Designer", ["KIMY MARTINEZ"]],
+    ["Original Score", ["IAN CHEN"]],
+    ["Hair/Makeup Dept. Head", ["MIKEL SESSIONS"]],
     [
       "Starring",
-      "ALEX DELFIN, CAROLINA ESPINOSA, JOSHUA FLORES, ANDREW BURSIAGA, VASILISA BADEKA",
+      [
+        "ALEX DELFIN",
+        "CAROLINA ESPINOSA",
+        "JOSHUA FLORES",
+        "ANDREW BURSIAGA",
+        "VASILISA BADEKA",
+      ],
     ],
   ];
 
@@ -93,10 +123,12 @@ function App() {
           }}
         >
           <iframe
+            ref={iframeRef}
             title="vimeo-player"
             src="https://player.vimeo.com/video/737650439?h=cd11c1ccd4"
-            width="70%"
             frameborder="0"
+            marginWidth="0"
+            marginHeight="0"
             allowfullscreen
           ></iframe>
         </Paper>
@@ -121,7 +153,7 @@ function App() {
         </Paper>
 
         <Paper
-          class="credit-scroll"
+          className="credit-scroll"
           style={{
             height: "60vh",
             overflowY: "scroll",
@@ -154,12 +186,16 @@ function App() {
                     }}
                   >
                     <Div>{role}</Div>
-                    <a
-                      href={"http://www.google.com"}
-                      style={{ textDecoration: "none" }}
-                    >
-                      <DivNms>{nms}</DivNms>
-                    </a>
+                    {nms.map((nm) => {
+                      return (
+                        <a
+                          href={"http://www.google.com"}
+                          style={{ textDecoration: "none" }}
+                        >
+                          <DivNms>{nm}</DivNms>
+                        </a>
+                      );
+                    })}
                   </CardContent>
                 </Card>
               </Paper>
