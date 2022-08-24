@@ -61,8 +61,9 @@ function App() {
     color: "white",
     backgroundColor: "transparent",
     fontWeight: "bold",
-    border: "2px solid white",
-    padding: "16px",
+    textAlign: "left",
+    border: "1px solid white",
+    padding: "8px",
   }));
 
   let segs = [
@@ -88,7 +89,7 @@ function App() {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    textAlign: "center",
+    textAlign: "left",
     verticalAlign: "middle",
     backgroundColor: "transparent",
     boxShadow: "unset",
@@ -134,8 +135,8 @@ function App() {
         </Paper>
         <Paper
           style={{
-            float: "center",
-            paddingLeft: "10px",
+            marginLeft: "-340px",
+            paddingLeft: "0px",
             paddingTop: "30px",
             paddingBottom: "20px",
             backgroundColor: "transparent",
@@ -155,7 +156,7 @@ function App() {
         <Paper
           className="credit-scroll"
           style={{
-            height: "60vh",
+            height: "70vh",
             overflowY: "scroll",
             overflowX: "hidden",
             backgroundColor: "transparent",
@@ -166,8 +167,8 @@ function App() {
               <Paper style={paperStyle}>
                 <Card
                   style={{
-                    maxWidth: 400,
-                    width: 400,
+                    maxWidth: 600,
+                    width: 600,
                     backgroundColor: "transparent",
                     opacity: 0.9,
                     paddingLeft: "10px",
