@@ -27,6 +27,9 @@ function App() {
         if (iW > 800) {
           iW = 800;
         }
+        if (iW < 500) {
+          iW = 500;
+        }
         
         iframeRef.current.width = iW + 'px';
         iframeRef.current.height = (iW * (268/640)) + 'px'; 
